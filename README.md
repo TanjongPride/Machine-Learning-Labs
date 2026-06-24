@@ -1,17 +1,15 @@
-# 📡 Telecom Customer Churn Prediction
+# Lab 4  Telecom Customer Churn Prediction
 
 A complete Machine Learning project that predicts whether a telecom customer will churn (leave) or stay, built with Python, trained on real customer data, and deployed as an interactive web application using Streamlit.
 
 ---
 
-## 👤 Project Author
-**Course:** EEF 606 — Data Driven  
-**Semester:** 2nd Semester  
+  
 **Tool:** Python, VS Code, Anaconda
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 TELECOM_CHURN/
@@ -45,7 +43,7 @@ TELECOM_CHURN/
 ### Requirements
 - [Anaconda](https://www.anaconda.com/download) — Python distribution that includes most libraries
 - [VS Code](https://code.visualstudio.com/) — Code editor
-- VS Code Extensions: **Python**, **Jupyter** (installed via VS Code marketplace)
+- VS Code Extensions: **Python**, **Jupyter** (installed through VS Code marketplace)
 
 ### Python Libraries Used
 
@@ -70,7 +68,7 @@ conda install streamlit -c conda-forge
 
 ---
 
-## 📊 Dataset Description
+##  Dataset Description
 
 **File:** `customer_churn_data.csv`  
 **Size:** 1,000 customers, 10 columns
@@ -90,11 +88,11 @@ conda install streamlit -c conda-forge
 
 ---
 
-## 🔬 Step-by-Step Project Walkthrough
+##   Project Walkthrough
 
 ### Step 1 — Load and Explore the Data (EDA)
 
-**What we did:**  
+**What was done:**  
 Loaded the dataset into Python and explored its structure to understand what we're working with.
 
 **Key findings:**
@@ -116,7 +114,7 @@ df.isnull().sum()                # Check missing values
 df['Churn'].value_counts()       # Check churn distribution
 ```
 
-**Key function explanations:**
+**Key functions:**
 - `pd.read_csv()` — reads a CSV file and converts it into a DataFrame (table)
 - `df.head()` — shows the first 5 rows of the data
 - `df.shape` — returns (rows, columns)
@@ -127,7 +125,7 @@ df['Churn'].value_counts()       # Check churn distribution
 
 ### Step 2 — Data Preprocessing
 
-**What we did:**  
+**What was done:**  
 Cleaned and transformed the data so ML models can understand it. Models only work with numbers — not text.
 
 **Actions taken:**
@@ -194,10 +192,10 @@ X_balanced, y_balanced = smote.fit_resample(X, y)
 
 ### Step 4 — Train/Test Split
 
-**What we did:**  
+**What was done:**  
 Split the data into 80% for training and 20% for testing.
 
-**Why:** You can't test a model on the same data it learned from — that's like giving students the exam answers during class. We keep 20% hidden so we can fairly evaluate performance.
+ You can't test a model on the same data it learned from — that's like giving students the exam answers during class. We keep 20% hidden so we can fairly evaluate performance.
 
 **Code:**
 ```python
@@ -214,7 +212,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 ### Step 5 — Train 3 Machine Learning Models
 
-**What we did:**  
+**What was done:**  
 Trained three different models and compared their performance.
 
 #### Model 1: Logistic Regression
@@ -251,8 +249,7 @@ xgb.fit(X_train, y_train)
 
 ### Step 6 — Evaluate Models
 
-**What we did:**  
-Measured how well each model performed on the unseen test data.
+
 
 **Metrics explained:**
 - **Accuracy** — percentage of correct predictions overall
@@ -269,7 +266,7 @@ Measured how well each model performed on the unseen test data.
 | Random Forest | 100%* | 1.0* | 1.0* |
 | XGBoost | 100%* | 1.0* | 1.0* |
 
-*⚠️ Random Forest and XGBoost scored 100% due to **overfitting** — they memorized the small dataset (1,000 rows) instead of learning general patterns. Logistic Regression at 90.96% is the most honest and realistic model.
+* Random Forest and XGBoost scored 100% due to **overfitting** — they memorized the small dataset (1,000 rows) instead of learning general patterns. Logistic Regression at 90.96% is the most honest and realistic model.
 
 ---
 
@@ -295,7 +292,7 @@ Identified which factors most strongly influence whether a customer churns.
 
 ### Step 8 — Save Models
 
-**What we did:**  
+
 Saved all three trained models to disk so the web app can load and use them without retraining.
 
 ```python
@@ -317,7 +314,7 @@ joblib.dump(xgb, "../models/xgboost.pkl")
 
 ### Step 9 — Web Application (Streamlit)
 
-**What we built:**  
+ 
 An interactive web app where you enter customer details and get an instant churn prediction with probability and business recommendation.
 
 **Features:**
@@ -331,37 +328,37 @@ An interactive web app where you enter customer details and get an instant churn
 
 ---
 
-## 🚀 How to Launch the Project (Every Time)
+##  How to Launch the Project
 
 ### Step 1 — Open VS Code
-Open VS Code and navigate to your TELECOM_CHURN folder.
+Open VS Code and navigate to my TELECOM_CHURN folder.
 
-### Step 2 — Run the Jupyter Notebook (if doing analysis)
+### Step 2 — Run the Jupyter Notebook 
 1. Open `notebook/01_eda.ipynb`
 2. Click **"Run All"** at the top
-3. Always run all cells from top to bottom — Python forgets everything when VS Code closes
+3. we need to always  run all cells since  Python forgets everything when VS Code closes
 
-> ⚠️ **Golden Rule:** Every time you reopen VS Code, always click "Run All" first before running any individual cell. Python's memory is wiped when you close VS Code.
+
 
 ### Step 3 — Launch the Web App
-1. Open **Anaconda Prompt** (search in Windows Start menu)
+1. Open **Anaconda Prompt** 
 2. Navigate to your project folder:
-```bash
-cd "C:\Users\LENOVO T570\Documents\2nd SEMESTER COURSES\EEF 606 DATA DRIVEN\LABS\Telecom_churn"
-```
+
+cd "C:\Users\LENOVO T570\Documents\2nd SEMESTER COURSES\EEF 606 DATA DRIVEN\LABS\Telecom_churn" in my case 
+
 3. Run the app:
-```bash
+
 streamlit run app.py
-```
-4. Your browser will open automatically at `http://localhost:8501`
-5. If browser doesn't open, manually go to `http://localhost:8501`
+
+4. Your browser will open automatically at `http://localhost:8501` tihs is the address as at the time I launched the web app
+5. If browser doesn't open, we  manually go to `http://localhost:8501`
 
 ### Step 4 — Stop the Web App
 Press **Ctrl + C** in the Anaconda Prompt to stop the app.
 
 ---
 
-## ⚠️ Common Errors & Fixes
+##  Common Errors & Fixes
 
 | Error | Cause | Fix |
 |---|---|---|
@@ -372,7 +369,7 @@ Press **Ctrl + C** in the Anaconda Prompt to stop the app.
 
 ---
 
-## 📈 Key Findings & Conclusions
+##  Key Findings & Conclusions
 
 1. **Contract type is the strongest predictor of churn** — customers on Month-to-Month contracts are far more likely to leave than those on annual contracts.
 
@@ -386,15 +383,8 @@ Press **Ctrl + C** in the Anaconda Prompt to stop the app.
 
 ---
 
-## 💡 Business Recommendations
 
-Based on the model findings, telecom companies should:
-
-1. **Offer incentives to convert Month-to-Month customers** to One-Year or Two-Year contracts
-2. **Invest in early customer onboarding** — the first few months are critical
-3. **Bundle tech support** into standard packages to reduce churn
-4. **Flag high-risk customers proactively** using this model and offer targeted retention deals
 
 ---
 
-*Project completed as part of EEF 606 Data Driven coursework.*
+
